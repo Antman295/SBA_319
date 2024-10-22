@@ -1,8 +1,10 @@
 // Imports
 import express from 'express';
 import dotenv from 'dotenv';
-import bodyParser from 'body-parser'
+import bodyParser from 'body-parser';
 import connectDB from './db/conn.mjs';
+import Coaster from './models/schemas.mjs';
+import coasterRoutes from './routes/coasterRoutes.mjs'
 
 const app = express();
 dotenv.config();
