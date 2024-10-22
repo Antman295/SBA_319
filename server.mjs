@@ -18,6 +18,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json({extended: true}));
 
 // Routes
+app.use('/coaster', coasterRoutes);
 
 // Listener
 app.listen(PORT, () => {

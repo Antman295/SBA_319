@@ -4,7 +4,7 @@ import Coaster from '../models/schemas.mjs';
 const router = express.Router();
 
 // Create
-router.post('/costers', async (req, res) => {
+router.post('/', async (req, res) => {
     try {
         const newCoaster = new Coaster(req.body);
 
@@ -18,7 +18,7 @@ router.post('/costers', async (req, res) => {
 });
 
 // Read
-router.get('/coasters', async (req, res) => {
+router.get('/', async (req, res) => {
     try {
       const allCoasters = await Coaster.find({});
   
