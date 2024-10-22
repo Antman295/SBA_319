@@ -29,4 +29,29 @@ router.get('/', async (req, res) => {
     }
 });
 
+// Update
+router.put('/:id', async (req, res) => {
+    try {
+        let updateCoaster = await Coaster.findByIdAndUpdate(req.params.id, req.body, {
+            new: true,
+        });
+    
+        res.json(updateCoaster);
+      } catch (err) {
+        console.error(err);
+        res.status(500).json({ msg: 'Server Error' });
+      }
+});
+
+// Delete
+router.delete('/:id', async (req, res) => {
+    try {
+        let deleteCoaster = await Coaster.findByIdAndDelete(req.params.id);
+
+        res.json(deleteCoaster);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ msg: 'Server Error'});
+    }
+})
 export default router;
