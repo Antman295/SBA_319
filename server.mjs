@@ -24,6 +24,18 @@ app.use('/coaster', coasterRoutes);
 app.use('/videogame', videoGameRoutes);
 app.use('/wrestler', wrestlerRoutes);
 
+// Seeding test data
+app.get('/seed', async (req, res) => {
+
+    // OPtional step
+    // await Song.deleteMany({})
+  
+    // Create items in database
+    await Coaster.create(songs)
+  
+    res.send('Seeding database')
+  });
+
 // Listener
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}.`)
