@@ -6,6 +6,7 @@ import connectDB from './db/conn.mjs';
 import Coaster from './models/coasterSchemas.mjs';
 import coasterRoutes from './routes/coasterRoutes.mjs'
 import videoGameRoutes from './routes/videoGameRoutes.mjs'
+import wrestlerRoutes from './routes/wrestlerRoutes.mjs'
 
 const app = express();
 dotenv.config();
@@ -21,6 +22,7 @@ app.use(bodyParser.json({extended: true}));
 // Routes
 app.use('/coaster', coasterRoutes);
 app.use('/videogame', videoGameRoutes);
+app.use('/wrestler', wrestlerRoutes);
 
 // Listener
 app.listen(PORT, () => {
