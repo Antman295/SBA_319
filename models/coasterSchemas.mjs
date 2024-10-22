@@ -23,4 +23,4 @@ const coasterSchema = new mongoose.Schema({
 
 coasterSchema.index({name: 1})
 
-export default mongoose.model('Coaster', coasterSchema);
+export default mongoose.model('Coaster', coasterSchema)

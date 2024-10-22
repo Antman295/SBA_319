@@ -1,6 +1,6 @@
 // Import
 import express from 'express';
-import Coaster from '../models/schemas.mjs';
+import Coaster from '../models/coasterSchemas.mjs';
 const router = express.Router();
 
 // Create
