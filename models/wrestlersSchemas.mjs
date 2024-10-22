@@ -16,9 +16,14 @@ const wrestlerSchema = new mongoose.Schema({
     year_joined: {
         type: Number
     },
-    retired: {
-        type: Boolean
-    }
+    status: [{
+        injured:{
+            type: Boolean
+        },
+        retired: {
+            type: Boolean
+        }
+    }]
 })
 
 export default mongoose.model('Wrestler', wrestlerSchema)
