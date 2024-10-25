@@ -3,9 +3,16 @@ import express from 'express';
 import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
 import connectDB from './db/conn.mjs';
+
+// Coaster data imports
 import Coaster from './models/coasterSchemas.mjs';
+import { coasters } from './data/coasterData.mjs';
 import coasterRoutes from './routes/coasterRoutes.mjs'
+
+// Video Game data imports
 import videoGameRoutes from './routes/videoGameRoutes.mjs'
+
+// Wrestler data imports
 import wrestlerRoutes from './routes/wrestlerRoutes.mjs'
 
 const app = express();
@@ -24,13 +31,13 @@ app.use('/coaster', coasterRoutes);
 app.use('/videogame', videoGameRoutes);
 app.use('/wrestler', wrestlerRoutes);
 
-// Seeding test data
-app.get('/seed', async (req, res) => {
+// Seeding coaster test data
+app.get('/coaster/seed', async (req, res) => {
 
-    // OPtional step
-    await Song.deleteMany({})
+    // Delete items in database to reset
+    await Coaster.deleteMany({})
   
-    // Create items in database
+    // (Re)Create items in database
     await Coaster.create(coasters)
   
     res.send('Seeding database')

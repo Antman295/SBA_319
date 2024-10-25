@@ -17,7 +17,8 @@ const coasterSchema = new mongoose.Schema({
         type: Number
     },
     still_open: {
-        type: Boolean
+        type: Boolean,
+        required: true,
     }
 })
 
