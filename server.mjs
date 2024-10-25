@@ -28,10 +28,10 @@ app.use('/wrestler', wrestlerRoutes);
 app.get('/seed', async (req, res) => {
 
     // OPtional step
-    // await Song.deleteMany({})
+    await Song.deleteMany({})
   
     // Create items in database
-    await Coaster.create(songs)
+    await Coaster.create(coasters)
   
     res.send('Seeding database')
   });
