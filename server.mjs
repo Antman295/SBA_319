@@ -7,13 +7,16 @@ import connectDB from './db/conn.mjs';
 // Coaster data imports
 import Coaster from './models/coasterSchemas.mjs';
 import { coasters } from './data/coasterData.mjs';
-import coasterRoutes from './routes/coasterRoutes.mjs'
+import coasterRoutes from './routes/coasterRoutes.mjs';
 
 // Video Game data imports
-import VideoGame from './models/videoGameSchemas.mjs'
-import videoGameRoutes from './routes/videoGameRoutes.mjs'
+import VideoGame from './models/videoGameSchemas.mjs';
+import { videoGames } from './data/videoGameData.mjs';
+import videoGameRoutes from './routes/videoGameRoutes.mjs';
 
 // Wrestler data imports
+import Wrestler from './models/wrestlersSchemas.mjs';
+import { wrestlers } from './data/wrestlerData.mjs';
 import wrestlerRoutes from './routes/wrestlerRoutes.mjs'
 
 const app = express();
@@ -44,7 +47,7 @@ app.get('/coaster/seed', async (req, res) => {
     res.send('Seeding database')
   });
 
-  // Seeding video game test data
+// Seeding video game test data
 app.get('/videogame/seed', async (req, res) => {
 
   // Delete items in database to reset
@@ -55,6 +58,18 @@ app.get('/videogame/seed', async (req, res) => {
 
   res.send('Seeding database')
 });
+
+// Seeding wrestler test data
+app.get('/wrestler/seed', async (req, res) => {
+
+    // Delete items in database to reset
+    await Wrestler.deleteMany({})
+
+    // (Re)Create items in database
+    await Wrestler.create(wrestlers)
+
+    res.send('Seeding database')
+})
 
 
 // Listener

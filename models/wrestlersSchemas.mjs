@@ -21,7 +21,8 @@ const wrestlerSchema = new mongoose.Schema({
             type: Boolean
         },
         retired: {
-            type: Boolean
+            type: Boolean,
+            required: true
         }
     }]
 })
