@@ -10,6 +10,7 @@ import { coasters } from './data/coasterData.mjs';
 import coasterRoutes from './routes/coasterRoutes.mjs'
 
 // Video Game data imports
+import VideoGame from './models/videoGameSchemas.mjs'
 import videoGameRoutes from './routes/videoGameRoutes.mjs'
 
 // Wrestler data imports
@@ -42,6 +43,19 @@ app.get('/coaster/seed', async (req, res) => {
   
     res.send('Seeding database')
   });
+
+  // Seeding video game test data
+app.get('/videogame/seed', async (req, res) => {
+
+  // Delete items in database to reset
+  await VideoGame.deleteMany({})
+
+  // (Re)Create items in database
+  await VideoGame.create(videoGames)
+
+  res.send('Seeding database')
+});
+
 
 // Listener
 app.listen(PORT, () => {

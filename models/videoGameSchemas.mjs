@@ -12,6 +12,7 @@ const videoGameSchema = new mongoose.Schema({
     },
     rating: {
         type: String,
+        required: true
     },
     year: {
         type: Number
