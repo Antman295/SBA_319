@@ -19,6 +19,6 @@ const videoGameSchema = new mongoose.Schema({
     }
 })
 
-videoGameSchema.index({name: 1})
+videoGameSchema.index({name: 1, rating: 1})
 
 export default mongoose.model('VideoGame', videoGameSchema);

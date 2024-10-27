@@ -27,4 +27,6 @@ const wrestlerSchema = new mongoose.Schema({
     }]
 })
 
+wrestlerSchema.index({name: 1, year_joined: 1})
+
 export default mongoose.model('Wrestler', wrestlerSchema)

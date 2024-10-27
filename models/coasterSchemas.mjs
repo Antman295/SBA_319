@@ -22,6 +22,6 @@ const coasterSchema = new mongoose.Schema({
     }
 })
 
-coasterSchema.index({name: 1})
+coasterSchema.index({name: 1, location: 1})
 
 export default mongoose.model('Coaster', coasterSchema)
